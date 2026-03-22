@@ -1,25 +1,35 @@
-// Clase principal que define la entidad Estudiante
 public class Estudiante {
     
-    // Declaración de atributos privados (Encapsulamiento)
+    // Encapsulamiento: atributos privados
     private String nombre;
     private String matricula;
     private String carrera;
 
-    // Constructor: Se ejecuta al instanciar un nuevo objeto para inicializar sus atributos
+    // Constructor
     public Estudiante(String nombre, String matricula, String carrera) {
         this.nombre = nombre;
         this.matricula = matricula;
         this.carrera = carrera;
     }
 
-    // Método para mostrar los detalles del estudiante en consola
+    // Getters y Setters para buenas prácticas de encapsulamiento
+    public String getNombre() { return nombre; }
+    public void setNombre(String nombre) { this.nombre = nombre; }
+    
+    public String getMatricula() { return matricula; }
+    public void setMatricula(String matricula) { this.matricula = matricula; }
+    
+    public String getCarrera() { return carrera; }
+    public void setCarrera(String carrera) { this.carrera = carrera; }
+
+    // Método que delega la impresión al método toString
     public void mostrarDetalles() {
-        System.out.println("Nombre: " + nombre + " | Matrícula: " + matricula + " | Carrera: " + carrera);
+        System.out.println(this.toString());
     }
 
-    // Método Getter para obtener el nombre del estudiante si es necesario en otra parte del programa
-    public String getNombre() {
-        return nombre;
+    // Uso de toString() para estandarizar cómo se convierte a texto el objeto
+    @Override
+    public String toString() {
+        return "Nombre: " + nombre + " | Matrícula: " + matricula + " | Carrera: " + carrera;
     }
 }
